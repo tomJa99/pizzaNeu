@@ -1,6 +1,14 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE ^ E_DEPRECATED);
 
+/*Autoload Beispiel
+function autoload($className)
+{
+    require "classes/$className.php";
+}
+spl_autoload_register("autoload");
+*/
+
 // Daten-"Model"
 require "classes/ShopData.php";
 $model = new ShopData();
@@ -14,16 +22,15 @@ require "views/Seite.php";  // Eltern-Klasse "Seite"
 require "views/ISeite.php"; // Interface "ISeite"
 
 // View
-$page=$_REQUEST['page'];
-if ($page == "Sonderangebot")
+$page = htmlspecialchars($_REQUEST['page']);
+$page = str_replace("/", "", $page);
+
+if ($page == "" || !file_exists("views/$page.php"))
 {
-    require "views/Sonderangebot.php";
-    $view = new Sonderangebot($controller, $model);
+    $page = "Startseite";
 }
-else
-{
-    require "views/Startseite.php";
-    $view = new Startseite($controller, $model);
-}
+require "views/$page.php";
+$view = new $page($controller, $model);
+
 // Ausgabe
 echo $view->output();

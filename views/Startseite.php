@@ -16,7 +16,9 @@ class Startseite extends Seite implements ISeite
 		  Pizza-Express - hier finden Sie hausgemachte 
 		  Pizzas zu fairen Preisen.</p>
             
-          <p>Zum aktuellen <a href='index.php?page=Sonderangebot'>Sonderangebot</a></p>  
+          <p>Zum aktuellen <a href='?page=Sonderangebot'>Sonderangebot</a></p>  
+          
+          <p>Zum <a href='?page=Impressum'>Impressum</a></p>  
             
 		  </body>
           </html>
