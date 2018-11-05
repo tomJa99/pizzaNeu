@@ -17,6 +17,12 @@ $model = new ShopData();
 require "classes/ShopActions.php";
 $controller = new ShopActions($model);
 
+//ggf. Action-Controller ausführen
+if (isset($_REQUEST['action']) && !empty($_REQUEST['action']))
+{
+    $controller->{$_REQUEST['action']}($_REQUEST['actionValue']);
+}
+
 //"Vorlagen" für Views
 require "views/Seite.php";  // Eltern-Klasse "Seite"
 require "views/ISeite.php"; // Interface "ISeite"

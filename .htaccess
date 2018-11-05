@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteRule ^grafik/(.*)$ templates/grafik/$1
+RewriteRule ^jquery/(.*)$ templates/jquery/$1
+RewriteRule ^bootstrap-3.3.7-dist/(.*)$ templates/bootstrap-3.3.7-dist/$1

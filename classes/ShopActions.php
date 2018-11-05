@@ -1,17 +1,39 @@
 <?php
+
 class ShopActions
 {
     private $model;
- 
-    public function __construct(ShopData $model) {
+
+    public function __construct(ShopData $model)
+    {
         $this->model = $model;
     }
-	
-	public function calcSpecialOfferPrice($euro)
+
+    public function __call($name, $arguments)
     {
-    	return $euro*0.8;
+        //TODO: Fehlermeldung
     }
-   
+
+    public function calcSpecialOfferPrice($euro)
+    {
+        return $euro * 0.8;
+    }
+
+    /*public function setCurrencyUSD()
+    {
+        $this->model->currencySymbol = "\$";
+        $this->model->currencyRate = 1.14;
+    }
+    */
+    public function setCurrency($currencySymbol = "EUR")
+    {
+        $this->model->currencySymbol = $currencySymbol;
+        if ($currencySymbol == "USD")
+        {
+            $this->model->currencyRate = 1.14;
+        }
+        //if (... "CHF")...
+    }
 }
 
 

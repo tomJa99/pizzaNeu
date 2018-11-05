@@ -1,7 +1,10 @@
 <?php
+
 class ShopData
 {
     private $link;
+    public $currencySymbol = "EUR";
+    public $currencyRate = 1;
 
     function __construct()
     {
@@ -12,14 +15,14 @@ class ShopData
 
     public function getSpecialOffer()
     {
-    	$temp['name']="Regina";
-    	$temp['preis']=4.20;
+        $temp['name'] = "Regina";
+        $temp['preis'] = 4.20;
 
-    	$query ="SELECT name,preis FROM pizza WHERE sonderangebot=1";
-    	$result = mysqli_query($this->link, $query);
-    	$temp = mysqli_fetch_assoc($result);
+        $query = "SELECT name,preis FROM pizza WHERE sonderangebot=1";
+        $result = mysqli_query($this->link, $query);
+        $temp = mysqli_fetch_assoc($result);
 
-    	return $temp;
+        return $temp;
     }
-    
+
 }

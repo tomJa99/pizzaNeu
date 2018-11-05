@@ -4,7 +4,7 @@ class Impressum extends Seite implements ISeite
 {
     public function output(): string
     {
-        $html = "
+        /*$html = "
           <html>
           <head><title>Impressum</title></head>
 		  
@@ -18,7 +18,19 @@ class Impressum extends Seite implements ISeite
 		  </body>
           </html>
         ";
+        */
 
+        $title = "Impressum";
+        $subtitle = "Verantwortlich für Text und Inhalt";
+        $content = "<p>Salvatore .... bla bla blaa</p>";
+
+        //aktiviert die Ausgabepufferung - "echo wird nicht ausgegeben"
+        ob_start();
+        require "templates/default.php";
+        // Ausgabepuffer auslesen
+        $html = ob_get_contents();
+        //deaktiviert die Ausgabepufferung
+        ob_end_clean();
         return $html;
     }
 }
