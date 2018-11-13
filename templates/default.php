@@ -68,23 +68,16 @@
         <!-- Bildquelle: Wikipedia -->
         <img src="grafik/header_small.png" alt="Salvatores Pizza-Express" class="img-responsive">
         <h1><?php echo $title; ?></h1>
-        <p><?php echo $subtitle;?></p>
+        <p><?php echo $subtitle; ?></p>
 
     </div>
 </div>
 
 <div class="container">
 
-    <p>
-        <?php echo $content;?>
-    </p>
+    <?php echo $content; ?>
 
-    <hr>
 
-    <footer>
-        <p>&copy; 2016 Salvatores Pizza Express, Musterstadt (diese Website ist ein Übungsprojekt für
-            Programmier-Workshops, Kurse und Vorlesungen von Simon A. Frank)</p>
-    </footer>
 </div> <!-- /container -->
 
 

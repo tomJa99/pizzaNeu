@@ -5,6 +5,8 @@ class ShopData
     private $link;
     public $currencySymbol = "EUR";
     public $currencyRate = 1;
+    public $listOrder = "ORDER by id";
+
 
     function __construct()
     {
@@ -18,10 +20,17 @@ class ShopData
         $temp['name'] = "Regina";
         $temp['preis'] = 4.20;
 
-        $query = "SELECT name,preis FROM pizza WHERE sonderangebot=1";
+        $query = "SELECT id,name,preis FROM pizza WHERE sonderangebot=1";
         $result = mysqli_query($this->link, $query);
         $temp = mysqli_fetch_assoc($result);
+        return $temp;
+    }
 
+    public function getAllProducts()
+    {
+        $query = "SELECT id,name,preis,beschreibung FROM pizza {$this->listOrder}";
+        $result = mysqli_query($this->link, $query);
+        $temp = mysqli_fetch_all($result,MYSQLI_ASSOC);
         return $temp;
     }
 

@@ -20,6 +20,8 @@ class Startseite extends Seite implements ISeite
           
           <p>Zum aktuellen<a href='?page=Sonderangebot&action=setCurrency&actionValue=USD'>Sonderangebot in USD</a></p>  
           
+          <p>Zu unseren <a href='?page=Produktliste'>Spezialitäten</a></p>
+          
           <p>Zum <a href='?page=Impressum'>Impressum</a></p>  
             
 		  </body>
